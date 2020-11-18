@@ -18,8 +18,10 @@ if ("" + daliklis === "NaN" || daliklis === Infinity || daliklis === - Infinity)
 }
 
     // function logic
-
-    let dalmuo = dalinys / daliklis;
+    const power = 10 ** 2 /* 10 kvadradu, nes norime 2 skaitmwenų po kablelio, išsisaugoma reikšmė. */
+    let dalmuo = (dalinys / daliklis) * power; /* padauginama iš 100, šiuo atveju, pagal išsaugotą reikšmę, kad dalmens reikšmės kablelis pasistumtų per 2 skaitmenis į dešinę. */
+    dalmuo = Math.floor(dalmuo); /*funkcija, kuri gautą skaičių suapvalina žemyn. */
+    dalmuo /= power;  /* suapvalintas skaičius grąžinamas į pirminę būseną padalinus jį iš power kintamojo - šiuo atveju iš 10^2, kad kablelis vėl pasistumtų per du skaitmenis atgal į kairę. */
 
 
     // post-logic validation
@@ -55,7 +57,3 @@ console.log (dalyba (-4, -2));
 console.log (dalyba (4.1, 2));
 console.log (dalyba (4, 2.1));
 console.log (dalyba (4.1, 2.1));
-/* 
-
-esant geroms - tęsti darbą - ar reikia else? 
-kaip atvaizduoti 2 skaitmenis po kablelio? 
